@@ -1,0 +1,40 @@
+@charset 'UTF-8';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6em;
+  font-family: Verdana, sans-serif;
+}
+
+#container {
+  width: 300px;
+  margin: 2rem auto;
+}
+
+form {
+  text-align: center;
+}
+
+form > div {
+  margin-bottom: 1rem;
+}
+
+input[type=text] {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 1.4rem;
+}
+
+.btn {
+  width: 10rem;
+  padding: .7rem;
+  border-radius: .5rem;
+  color: #fff;
+  background: #00aaff;
+  box-shadow: 0 .3rem 0 #0088cc;
+  cursor: pointer;
+  margin: 0 auto 1.5rem;
+}
