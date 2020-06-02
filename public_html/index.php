@@ -1,5 +1,11 @@
 <?php
   require_once(__DIR__ . '/../config/config.php');
+
+  $app = new MyApp\Controller\Index();
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $app->post();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,7 +22,8 @@
         <input type="text" name="post_text">
       </div>
       <div>
-        <input type="file" name="post_image" id="is_image">
+        <input type="file" name="post_image">
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo h(MAX_FILE_SIZE); ?>">
       </div>
       <div>
         <input type="submit" value="post" class="btn">
