@@ -38,3 +38,9 @@ input[type=text] {
   cursor: pointer;
   margin: 0 auto 1.5rem;
 }
+
+#post_content ul li {
+  text-decoration: none;
+  list-style: none;
+  padding-bottom: 1rem;
+}

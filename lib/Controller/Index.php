@@ -5,6 +5,11 @@ namespace MyApp\Controller;
 class Index {
   private $_imageFileName;
 
+  public function getAll() {
+    $postModel = new \MyApp\Model\Post();
+    return $postModel->index();
+  }
+
   public function post() {
     $imageName = null;
 
@@ -17,10 +22,11 @@ class Index {
         list($savePath, $imageName) = $this->_saveImages($image);
       }
       $postModel = new \MyApp\Model\Post();
-      $postModel->create([
+      $returnData = $postModel->create([
         'post_text' => $_POST['post_text'],
         'post_image' => $imageName
       ]);
+      return $returnData;
     } catch(\Exception $e) {
       echo $e->getMessage();
       exit;
