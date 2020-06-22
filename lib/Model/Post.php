@@ -5,7 +5,7 @@ namespace MyApp\Model;
 class Post extends \MyApp\Model {
 
   public function index() {
-    $stmt = $this->db->query('select * from posts order by id desc');
+    $stmt = $this->db->query('select * from posts order by id desc limit 10');
     return $stmt->fetchAll(\PDO::FETCH_OBJ);
   }
 
@@ -17,17 +17,18 @@ class Post extends \MyApp\Model {
      ':deleted' => null,
      ]);
 
-     $created = $this->_getCreated();
+     $params = $this->_getParams();
 
    return [
     'id' => $this->db->lastInsertId(),
-    'created' => $created
+    'image' => $params['image'],
+    'created' => $params['created']
    ];
   }
 
-  private function _getCreated() {
-    $created = $this->db->query('select created from posts order by id desc limit 1');
-    $fetchCreated = $created->fetch(\PDO::FETCH_ORI_FIRST);
-    return $fetchCreated['created'];
+  private function _getParams() {
+    $params = $this->db->query('select image, created from posts order by id desc limit 1');
+    $fetchParams = $params->fetch(\PDO::FETCH_ORI_FIRST);
+    return $fetchParams;
   }
 }

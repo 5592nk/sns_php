@@ -44,3 +44,8 @@ input[type=text] {
   list-style: none;
   padding-bottom: 1rem;
 }
+
+.err { 
+  color: #ff0000;
+  font-weight: bold;
+}
